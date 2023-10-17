@@ -59,7 +59,7 @@ def main():
                 words += row
 
         random.shuffle(words)
-        gen_words = (word for word in words)
+        gen_words = iter(words)
         pop_word = next(gen_words)
         layout = [
             [sg.Text(pop_word, key="-T1-", font=font, justification="center")],
