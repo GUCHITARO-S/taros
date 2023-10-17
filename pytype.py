@@ -31,7 +31,7 @@ def type_index():
         event, value = window.read()
         if event in [sg.WIN_CLOSED, "-END-"]:
             break
-        if flag > 0:
+        if flag == 1:
             window.close()
             main()
         if event == "-START-":
