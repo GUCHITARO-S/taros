@@ -65,6 +65,7 @@ def main():
         random.shuffle(words)
         gen_words = iter(words)
         pop_word = next(gen_words)
+        """入力画面の設定"""
         layout = [
             [sg.Text(pop_word, key="-T1-", font=font, justification="center")],
             [sg.Input(key="-I1-", font=font, border_width=3),
@@ -95,6 +96,7 @@ def main():
                     window["-O1-"].update(ans_word)
                     window["-O2-"].update(ans_time)
                     start = time.perf_counter()
+            """20問未満のファイルの結果画面"""
             except StopIteration:
                 layout = [
                     [sg.Text(f"入力時間合計：{int(total_time // 60)}分"
@@ -115,6 +117,7 @@ def main():
                         type_index()
             else:
                 continue
+        """20問以上のファイルの結果画面"""
         layout = [
             [sg.Text(f"合計入力時間：{int(total_time // 60)}分"
                      f"{int(total_time % 60)}秒 -> 問題数：{count}",
