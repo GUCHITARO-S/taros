@@ -7,7 +7,8 @@ def player_hand():
         p = int(input("1:グー 2:チョキ 3:パー\n"))
         if p == 0:
             sys.exit()
-        print("Player:グー" if p == 1 else "Player:チョキ" if p == 2 else "Player:パー")
+        print("Player:", end="")
+        print("グー" if p == 1 else "チョキ" if p == 2 else "パー")
         if not (1 <= p <= 3):
             raise ValueError
         return p
