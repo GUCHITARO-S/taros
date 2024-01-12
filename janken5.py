@@ -9,11 +9,9 @@ def player_hand():
             sys.exit()
         if not (1 <= p <= 3):
             raise ValueError
-            
         print("Player:", end="")
         print("グー" if p == 1 else "チョキ" if p == 2 else "パー")
         return p
-
     except ValueError:
         print("1～3を入力してください")
         return player_hand()
