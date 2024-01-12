@@ -69,7 +69,7 @@ def main():
             e_point += 1
         print(f"Player:{p_point}勝 CPU:{e_point}勝")
 
-    print(f"{limit}勝！プレイヤーの勝ち" if p_point == 3 else f"{limit}敗！プレイヤーの負け")
+    print(f"{limit}勝！プレイヤーの勝ち" if p_point == limit else f"{limit}敗！プレイヤーの負け")
 
 
 if __name__ == "__main__":
