@@ -4,13 +4,14 @@ import sys
 
 def player_hand():
     try:
-        p = int(input("1:グー 2:チョキ 3:パー\n"))
+        p = int(input("1:グー 2:チョキ 3:パー"))
         if p == 0:
             sys.exit()
-        print("Player:", end="")
-        print("グー" if p == 1 else "チョキ" if p == 2 else "パー")
         if not (1 <= p <= 3):
             raise ValueError
+            
+        print("Player:", end="")
+        print("グー" if p == 1 else "チョキ" if p == 2 else "パー")
         return p
 
     except ValueError:
@@ -45,7 +46,7 @@ def janken():
     enemy = enemy_hand()
     winner, flg = judge(player, enemy)
     if flg:
-        print("あいこでしょ！")
+        print("\nあいこでしょ！")
         return janken()
     if winner:
         point = True
@@ -68,7 +69,7 @@ def main():
             p_point += 1
         else:
             e_point += 1
-        print(f"Player:{p_point}勝 CPU:{e_point}勝")
+        print(f"Player:{p_point}勝 CPU:{e_point}勝\n")
 
     print(f"{limit}勝！プレイヤーの勝ち" if p_point == limit else f"{limit}敗！プレイヤーの負け")
 
