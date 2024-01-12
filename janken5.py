@@ -27,7 +27,6 @@ def enemy_hand():
 def judge(p, e):
     flg = False
     winner = False
-
     if p == e:
         flg = True
     elif (p - e) % 3 == 2:
@@ -56,7 +55,6 @@ def main():
     p_point = 0
     e_point = 0
     limit = 3
-
     print("…0で終了")
     while p_point < limit and e_point < limit:
         print("ジャンケンポン！")
