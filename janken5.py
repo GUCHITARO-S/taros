@@ -37,7 +37,6 @@ def judge(p, e):
         winner = True
     else:
         print("CPUの勝ち")
-
     return winner, flg
 
 
@@ -52,7 +51,6 @@ def janken():
         point = True
     else:
         point = False
-
     return point
 
 
@@ -70,7 +68,6 @@ def main():
         else:
             e_point += 1
         print(f"Player:{p_point}勝 CPU:{e_point}勝\n")
-
     print(f"{limit}勝！プレイヤーの勝ち" if p_point == limit else f"{limit}敗！プレイヤーの負け")
 
 
