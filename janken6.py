@@ -18,14 +18,14 @@ class janken:
             try:
                 hand_input = int(input("1:グー 2:チョキ 3:パー  0:終了  4:戦績"))
     
-                if hand_input == 4:
+                if 0 <= hand_input <= 3: 
+                    self.hand = hand[hand_input]
+                elif hand_input == 4:
                     self.show_data()
                     return self.choose_hand()
-                elif not (0 <= hand_input <= 3): 
+                else:
                     print("1-3の数字を入力してください。" + "\n")
                     return self.choose_hand()
-                else:
-                    self.hand = hand[hand_input]
 
             except ValueError:
                 print("数字を入力してください。" + "\n")
