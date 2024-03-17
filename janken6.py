@@ -55,13 +55,13 @@ class janken:
             player.lose += 1
             enemy.win += 1
             return "CPUの勝ち"
-
-   
+            
 
 def main():
     print("じゃんけん開始")
     player = janken(True)
     enemy = janken(False)
+    
     while True:
         player_result = player.choose_hand()
         if player_result == "end":
