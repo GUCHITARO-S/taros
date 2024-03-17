@@ -2,7 +2,7 @@ class janken:
     
     def __init__(self, name):
         self.name = name
-        self.player_hand = "" 
+        self.hand = "" 
         self.win = 0
         self.lose = 0
         self.draw = 0
@@ -18,11 +18,11 @@ class janken:
                     self.show_data()
                     return self.choose_hand()
                 elif hand_input == 1:
-                    self.player_hand = "グー"
+                    self.hand = "グー"
                 elif hand_input == 2:
-                    self.player_hand = "チョキ"
+                    self.hand = "チョキ"
                 elif hand_input == 3:
-                    self.player_hand = "パー"
+                    self.hand = "パー"
                 elif not (0 <= hand_input <= 3): 
                     print("1-3の数字を入力してください。" + "\n")
                     return self.choose_hand()
@@ -32,7 +32,7 @@ class janken:
         else:
             from random import randint
             hand = {1: "グー", 2: "チョキ", 3: "パー"}
-            self.player_hand = hand[randint(1, 3)]
+            self.hand = hand[randint(1, 3)]
 
     
     def show_data(self):
@@ -41,13 +41,13 @@ class janken:
 
     @classmethod
     def judge(cls, player, enemy): 
-        if player.player_hand == enemy.player_hand:
+        if player.hand == enemy.hand:
             player.draw += 1
             enemy.draw += 1
             return "あいこ"
-        elif ((player.player_hand == "グー" and enemy.player_hand == "チョキ") or
-              (player.player_hand == "チョキ" and enemy.player_hand == "パー") or
-              (player.player_hand == "パー" and enemy.player_hand == "グー")):
+        elif ((player.hand == "グー" and enemy.hand == "チョキ") or
+              (player.hand == "チョキ" and enemy.hand == "パー") or
+              (player.hand == "パー" and enemy.hand == "グー")):
             player.win += 1
             enemy.lose += 1
             return "プレイヤーの勝ち"
