@@ -42,17 +42,14 @@ class janken:
     def judge(cls, player, enemy): 
         if player.hand == enemy.hand:
             player.draw += 1
-            enemy.draw += 1
             return "あいこ"
         elif ((player.hand == "グー" and enemy.hand == "チョキ") or
               (player.hand == "チョキ" and enemy.hand == "パー") or
               (player.hand == "パー" and enemy.hand == "グー")):
             player.win += 1
-            enemy.lose += 1
             return "プレイヤーの勝ち"
         else:
             player.lose += 1
-            enemy.win += 1
             return "CPUの勝ち"
 
    
