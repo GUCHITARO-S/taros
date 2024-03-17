@@ -1,3 +1,6 @@
+from random import randint
+
+
 class janken:
     
     def __init__(self, name):
@@ -9,29 +12,25 @@ class janken:
 
 
     def choose_hand(self): 
+        hand = {1: "グー", 2: "チョキ", 3: "パー", 0: "end"}
+
         if self.name:
             try:
                 hand_input = int(input("1:グー 2:チョキ 3:パー  0:終了  4:戦績"))
-                if hand_input == 0:
-                    return "end" 
-                elif hand_input == 4:
+    
+                if hand_input == 4:
                     self.show_data()
                     return self.choose_hand()
-                elif hand_input == 1:
-                    self.hand = "グー"
-                elif hand_input == 2:
-                    self.hand = "チョキ"
-                elif hand_input == 3:
-                    self.hand = "パー"
                 elif not (0 <= hand_input <= 3): 
                     print("1-3の数字を入力してください。" + "\n")
                     return self.choose_hand()
+                else:
+                    self.hand = hand[hand_input]
+
             except ValueError:
                 print("数字を入力してください。" + "\n")
                 return self.choose_hand()
         else:
-            from random import randint
-            hand = {1: "グー", 2: "チョキ", 3: "パー"}
             self.hand = hand[randint(1, 3)]
 
     
@@ -55,16 +54,17 @@ class janken:
             player.lose += 1
             enemy.win += 1
             return "CPUの勝ち"
-            
+
+   
 
 def main():
     print("じゃんけん開始")
     player = janken(True)
     enemy = janken(False)
-    
+
     while True:
-        player_result = player.choose_hand()
-        if player_result == "end":
+        player.choose_hand()
+        if player.hand == "end":
             print("じゃんけん終了")
             break
         enemy.choose_hand()
