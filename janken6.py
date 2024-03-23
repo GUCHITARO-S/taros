@@ -1,6 +1,3 @@
-from random import randint
-
-
 class janken:
     
     def __init__(self, name):
@@ -12,6 +9,8 @@ class janken:
 
 
     def choose_hand(self): 
+        from random import randint
+        
         hand = {1: "グー", 2: "チョキ", 3: "パー", 0: "end"}
 
         if self.name:
